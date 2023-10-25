@@ -27,7 +27,7 @@
           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
         <div class="fw-medium">
-          Hi, <span class="text-capitalize">{{ Auth::guard('superuser')->user()->username ?? Auth::user()->username }}</span>
+          Hi, <span class="text-capitalize">{{ auth('superuser')->user()->username ?? auth('web')->user()->username }}</span>
         </div>
       </div>
 
@@ -39,9 +39,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('edit.profil', [Auth::guard('superuser')->id() ?? Auth::id()]) }}">
+          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('edit.profil', [auth('superuser')->id() ?? auth('web')->id()]) }}">
             <i class="fs-4 bi bi-person-fill-gear"></i>
             <span>Profil</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('presensi', [auth('superuser')->id() ?? auth('web')->id()]) }}">
+            <i class="fs-4 bi bi-person-fill-gear"></i>
+            <span>Presensi</span>
           </a>
         </li>
         @auth('superuser')
@@ -61,7 +67,7 @@
       {{-- header --}}
       <div class="p-3 p-sm-2 bg-white d-flex justify-content-between justify-content-md-end shadow-sm ">
         <i id="icon-list" class="fs-3 bi bi-list cursor-pointer d-md-none"></i>
-        <i id="logout" class="fs-3 bi bi-box-arrow-right cursor-pointer" data-id="{{ Auth::id() }}"></i>
+        <i id="logout" class="fs-3 bi bi-box-arrow-right cursor-pointer" data-id="{{ auth('web')->id() }}"></i>
       </div>
       {{-- /header --}}
   
