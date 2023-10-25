@@ -1,0 +1,142 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// Variables
+@import "bootstrap/scss/functions";
+@import 'variables';
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+
+// nav
+$nav-link-color: $gray-300;
+$nav-link-font-size: 1rem;
+$nav-link-font-weight: $font-weight-normal;
+
+// breadcumb
+$breadcrumb-bg: $blue;
+$breadcrumb-padding-y: .2rem;
+$breadcrumb-padding-x: .5rem;
+$breadcrumb-border-radius: $border-radius-sm;
+$breadcrumb-divider-color: $white;
+$breadcrumb-active-color: $white;
+
+$enable-rfs: false;
+
+$border-color: $gray-500;
+
+// .card-header {
+//   background-color: rgb(222, 218, 218) !important;
+// }
+
+@include media-breakpoint-up(sm) {
+  .form .btn {
+    width: 8rem !important;
+  }
+}
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $colors
+          ),
+        ),
+      ),
+    ),
+
+    "width": map-merge(
+      map-get($utilities, "width"),
+      ( responsive: true )
+    ),
+
+    "height": map-merge(
+      map-get($utilities, "width"),
+      ( responsive: true )
+    ),
+
+    "position": map-merge(
+      map-get($utilities, "position"),
+      ( responsive: true )
+    ),
+
+    "translate-x": (
+      property: transform,
+      responsive: true,
+      class: translate-x,
+      values: (
+        0: translateX(0),
+        25: translateX(25%),
+        50: translateX(50%),
+        75: translateX(75%),
+        100: translateX(100%)
+      )
+    ),
+
+    "translate-negative-x": (
+      property: transform,
+      responsive: true,
+      class: translate-nx,
+      values: (
+        25: translateX(-25%),
+        50: translateX(-50%),
+        75: translateX(-75%),
+        100: translateX(-100%)
+      )
+    ),
+
+    "transition": (
+      property: transition,
+      responsive: true,
+      class: transition,
+      values: (
+        all: all 400ms,
+        transform: transform 400ms,
+      )
+    ),
+
+    "cursor": (
+      property: cursor,
+      responsive: true,
+      values: auto default pointer wait text move help not-allowed
+    ),
+  )
+);
+
+
+body {
+  background-color: #dedcdc !important;
+}
+
+#sidebar {
+  width: 280px !important; 
+  background-color: rgb(52,58,64) !important;
+}
+
+@media(min-width: 768px) {
+  #sidebar {
+    width: 350px !important;
+  }
+}
+
+
+
+@import "bootstrap/scss/utilities/api";
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// DataTables
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+
