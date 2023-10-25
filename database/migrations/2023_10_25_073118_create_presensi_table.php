@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal');
             $table->time('jam_masuk');
+            $table->time('jam_keluar');
+            $table->enum('status', ['hadir', 'absen', 'terlambat']);
             $table->foreignId('id_user')->constrained('user', 'id');
         });
     }
