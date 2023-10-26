@@ -59,6 +59,10 @@ Route::controller(PresensiController::class)->middleware('auth:web')->group(func
   Route::post('/presensi-pulang', 'prosesPresensiPulang')->name('proses.presensi.pulang'); 
 });
 
+Route::controller(WaktuController::class)->middleware('auth:superuser')->group(function() {
+  Route::get('/edit-waktu', )->name('edit.waktu');
+});
+
 
 
 
