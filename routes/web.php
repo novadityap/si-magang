@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PresensiController;
+use App\Models\Presensi;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +53,15 @@ Route::controller(UserController::class)->middleware('auth:superuser')->group(fu
   Route::delete('/hapus-user/{user}', 'hapusUser')->name('hapus.user');
 });
 
-Route::controller(UserController::class)->group(function() {
-  Route::get('/user', 'index')->name('user');
+Route::controller(PresensiController::class)->middleware('auth:web')->group(function() {
+  Route::get('/presensi', 'index')->name('presensi');
+  Route::post('/presensi-datang', 'prosesPresensiDatang')->name('proses.presensi.datang'); 
+  Route::post('/presensi-pulang', 'prosesPresensiPulang')->name('proses.presensi.pulang'); 
 });
+
+
+
+
 
 
 
