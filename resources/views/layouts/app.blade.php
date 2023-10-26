@@ -44,12 +44,14 @@
             <span>Profil</span>
           </a>
         </li>
+        @auth('web')
         <li class="nav-item">
-          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('presensi', [auth('superuser')->id() ?? auth('web')->id()]) }}">
-            <i class="fs-4 bi bi-person-fill-gear"></i>
+          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('presensi') }}">
+          <i class="fs-4 bi bi-calendar2-check"></i>
             <span>Presensi</span>
           </a>
         </li>
+        @endauth
         @auth('superuser')
         <li class="nav-item">
           <a class="nav-link d-flex align-items-center gap-2" href="{{ route('daftar.user') }}">
