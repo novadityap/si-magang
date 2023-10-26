@@ -28,7 +28,6 @@
         </svg>
         <div class="fw-medium">
           Hi, <span class="text-capitalize">{{ auth('superuser')->user()->username ?? auth('web')->user()->username }}</span>
-          Hi, <span class="text-capitalize">{{ auth('superuser')->user()->username ?? auth('web')->user()->username }}</span>
         </div>
       </div>
 
@@ -40,7 +39,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('edit.profil', [auth('superuser')->id() ?? auth('web')->id()]) }}">
           <a class="nav-link d-flex align-items-center gap-2" href="{{ route('edit.profil', [auth('superuser')->id() ?? auth('web')->id()]) }}">
             <i class="fs-4 bi bi-person-fill-gear"></i>
             <span>Profil</span>
