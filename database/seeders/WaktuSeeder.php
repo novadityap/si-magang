@@ -13,8 +13,15 @@ class WaktuSeeder extends Seeder
     public function run(): void
     {
       \App\Models\Waktu::create([
+        'hari' => 'biasa',
         'buka' => now()->createFromTime(7, 0, 0),
         'tutup' => now()->createFromTime(15, 30, 0)
+      ]);
+
+      \App\Models\Waktu::create([
+        'hari' => 'jumat',
+        'buka' => now()->createFromTime(7, 0, 0),
+        'tutup' => now()->createFromTime(14, 00, 0)
       ]);
     }
 }
