@@ -60,6 +60,14 @@
           </a>
         </li>
         @endauth
+        @auth('superuser')
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center gap-2" href="{{ route('daftar.user') }}">
+            <i class="fs-4 bi bi-stopwatch"></i>
+            <span>Pengaturan Presensi</span>
+          </a>
+        </li>
+        @endauth
       </ul>
     </div>
     {{-- /sidebar --}}
