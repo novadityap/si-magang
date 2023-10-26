@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Presensi extends Model
 {
@@ -15,11 +16,12 @@ class Presensi extends Model
   protected $fillable = [
     'tanggal',
     'jam_masuk',
+    'jam_keluar',
+    'status',
     'id_user',
   ];
 
   public function user(): BelongsTo {
     return $this->belongsTo(User::class, 'id_user');
   }
-
 }
