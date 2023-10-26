@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('jam_masuk');
             $table->time('jam_keluar')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->foreignId('id_user')->constrained('user', 'id');
         });
     }
