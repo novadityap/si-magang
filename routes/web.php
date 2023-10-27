@@ -1,13 +1,14 @@
 <?php
 
+use App\Models\Presensi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WaktuController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresensiController;
-use App\Models\Presensi;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,9 @@ Route::controller(PresensiController::class)->middleware('auth:web')->group(func
 });
 
 Route::controller(WaktuController::class)->middleware('auth:superuser')->group(function() {
-  Route::get('/edit-waktu', )->name('edit.waktu');
+  Route::get('/edit-waktu', 'index')->name('waktu');
+  Route::get('/edit-waktu/{waktu}', 'editWaktu')->name('edit.waktu');
+  Route::put('/update-waktu/{waktu}', 'updateWaktu')->name('update.waktu');
 });
 
 
