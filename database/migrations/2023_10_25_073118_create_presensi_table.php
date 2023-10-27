@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('presensi', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->time('jam_masuk');
+            $table->date('tanggal')->nullable();
+            $table->time('jam_masuk')->nullable();
             $table->time('jam_keluar')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('id_user')->constrained('user', 'id');
