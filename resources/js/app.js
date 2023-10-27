@@ -1,6 +1,7 @@
 import './bootstrap';
 import './profil';
 import './user';
+import './waktu';
 
 
 $(function () {
