@@ -89,14 +89,14 @@ class UserController extends Controller
     ], 201);
   }
 
-  public function editUser(Request $request, User $user) {
+  public function editUser(User $user) {
     return response()->json([
       'success' => true,
       'data' => $user
     ], 200);
   }
 
-  public function editSuperuser(Request $request, Superuser $superuser) {
+  public function editSuperuser(Superuser $superuser) {
     return response()->json([
       'success' => true,
       'data' => $superuser
